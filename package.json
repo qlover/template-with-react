@@ -36,12 +36,12 @@
     "test": "craco test",
     "lint": "eslint --ext .js,.ts,.tsx --format=pretty ./src",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx --format=pretty ./src",
-    "eject": "react-scripts eject",
     "prepare": "husky install",
+    "eject": "react-scripts eject",
     "git:commit:add": "git add . & cz",
     "git:commit": "cz",
-    "init:husky": "husky install",
-    "init:cz": "npx commitizen init cz-conventional-changelog --save-dev --save-exact"
+    "init:cz": "npx commitizen init cz-conventional-changelog --save-dev --save-exact",
+    "init:husky": "node node_modules/husky/lib/bin add .husky/commit-msg 'npx --no -- commitlint --edit \"$1\"'"
   },
   "eslintConfig": {
     "extends": [
