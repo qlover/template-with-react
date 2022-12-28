@@ -38,7 +38,8 @@
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx --format=pretty ./src",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "git:commit": "git add . & cz",
+    "git:commit:add": "git add . & cz",
+    "git:commit": "cz",
     "init:husky": "husky install",
     "init:cz": "npx commitizen init cz-conventional-changelog --save-dev --save-exact"
   },
