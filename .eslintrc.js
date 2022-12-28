@@ -27,6 +27,30 @@ const eslintrc = {
         printWidth: 145,
       },
     ],
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "builtin",
+          "external",
+          ["internal", "parent", "sibling", "index"],
+          "unknown",
+        ],
+        pathGroups: [
+          {
+            pattern: "@app/**",
+            group: "external",
+            position: "after",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["builtin"],
+        "newlines-between": "always",
+        alphabetize: {
+          order: "asc",
+          // acseInsensitive: true,
+        },
+      },
+    ],
 
     // 允许 函数组件
     "react/function-component-definition": [
