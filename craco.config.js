@@ -1,10 +1,20 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const path = require("path");
-const CracoLessPlugin = require("craco-less");
-const { lessLoaderOptions } = require("./bin/config/craco.less.config");
+const path = require('path')
+
+const CracoLessPlugin = require('craco-less')
+
+const { lessLoaderOptions } = require('./bin/config/craco.less.config')
 
 module.exports = {
   webpack: {
+    // configure: (webpackConfig) => {
+    //   let { src } = webpackConfig.resolve.alias
+
+    //   webpackConfig.resolve.alias = Object.assign(webpackConfig.resolve.alias, {
+    //     '@': src
+    //   })
+    //   return webpackConfig
+    // },
+
     // configure: (config) => {
     //   config.module.rules.push({
     //     // 增加 svg 加载
@@ -16,13 +26,13 @@ module.exports = {
     // },
 
     alias: {
-      "@": path.resolve(__dirname, "src/"),
-    },
+      '@': path.resolve(__dirname, 'src/')
+    }
   },
   plugins: [
     {
       plugin: CracoLessPlugin,
-      options: lessLoaderOptions,
-    },
-  ],
-};
+      options: lessLoaderOptions
+    }
+  ]
+}

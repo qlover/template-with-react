@@ -7,11 +7,20 @@ const eslintrc = {
     'plugin:prettier/recommended' // 这里先配置下，后面有安装
   ],
   plugins: ['@typescript-eslint', 'react'],
+
+  // settings: {
+  //   'import/resolver': {
+  //     alias: [['@', './src/']]
+  //   }
+  // },
+
   rules: {
     // 允许使用 any 类型
     '@typescript-eslint/no-explicit-any': 0,
     // 允许导出匿名对象
     'import/no-anonymous-default-export': 0,
+
+    '@typescript-eslint/no-var-requires': 0,
 
     // 分类型导包
     'import/order': [
@@ -25,7 +34,7 @@ const eslintrc = {
         ],
         pathGroups: [
           {
-            pattern: '@app/**',
+            pattern: '@/**',
             group: 'external',
             position: 'after'
           }
