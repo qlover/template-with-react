@@ -1,23 +1,23 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from 'react'
 // import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-type Action<S> = (prevState: S) => S;
+type Action<S> = (prevState: S) => S
 type StateCommit<S> = (
   state?: Action<S> | Partial<S>,
   staged?: boolean
-) => S | void;
+) => S | void
 
-function isObject(obj: any): obj is Object {
-  return Object.prototype.toString.call(obj) === "[object Object]";
+function isObject(obj: any): obj is object {
+  return Object.prototype.toString.call(obj) === '[object Object]'
 }
 function update(_new: any, old: any) {
   if (isObject(_new) && isObject(old)) {
-    return { ...old, ..._new };
+    return { ...old, ..._new }
   }
   if (Array.isArray(_new) && Array.isArray(old)) {
-    return [...old, ..._new];
+    return [...old, ..._new]
   }
-  return _new;
+  return _new
 }
 
 /**
@@ -57,35 +57,35 @@ function update(_new: any, old: any) {
 export default function useCacheState<S>(
   initialState: S | (() => S)
 ): [Readonly<S>, StateCommit<S>, () => S] {
-  const [innerState, setInnerState] = useState<S>(initialState);
+  const [innerState, setInnerState] = useState<S>(initialState)
 
   // 未来版本需要，保证不能与 innerState 相等
-  const stagedStateRef = useRef<S>(innerState);
+  const stagedStateRef = useRef<S>(innerState)
 
   const commit = useCallback<StateCommit<S>>((state, staged) => {
     // 触发更新
     // commit() 更新
     if (state === undefined) {
       if (!staged) {
-        setInnerState(update(stagedStateRef.current, stagedStateRef.current));
+        setInnerState(update(stagedStateRef.current, stagedStateRef.current))
       }
 
-      return;
+      return
     }
 
-    if (typeof state === "function") {
-      const newState = (state as StateCommit<S>)(stagedStateRef.current);
-      stagedStateRef.current = update(newState, stagedStateRef.current);
+    if (typeof state === 'function') {
+      const newState = (state as StateCommit<S>)(stagedStateRef.current)
+      stagedStateRef.current = update(newState, stagedStateRef.current)
     } else {
-      stagedStateRef.current = update(state, stagedStateRef.current);
+      stagedStateRef.current = update(state, stagedStateRef.current)
     }
 
     if (!staged) {
-      setInnerState(stagedStateRef.current);
+      setInnerState(stagedStateRef.current)
     }
-  }, []);
+  }, [])
 
-  const getStaged = () => stagedStateRef.current;
+  const getStaged = () => stagedStateRef.current
 
-  return [innerState, commit, getStaged];
+  return [innerState, commit, getStaged]
 }

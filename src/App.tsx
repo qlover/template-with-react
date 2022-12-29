@@ -1,6 +1,6 @@
-import "@/styles/css/index.css";
-import "@/styles/less/index.less";
-import IconSvgAndroid from "./components/core/Icon/AssetsSvgIcon/Android";
+import '@/styles/css/index.css'
+import '@/styles/less/index.less'
+import IconSvgAndroid from './components/core/Icon/AssetsSvgIcon/Android'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <IconSvgAndroid />
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

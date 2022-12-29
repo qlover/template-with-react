@@ -1,63 +1,43 @@
 const eslintrc = {
-  extends: [require.resolve("@yueqing/lint/lib/ts-eslint")],
-  parserOptions: {
-    project: "./tsconfig.eslint.json",
-  },
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'react-app',
+    'react-app/jest',
+    'plugin:prettier/recommended' // 这里先配置下，后面有安装
+  ],
+  plugins: ['@typescript-eslint', 'react'],
   rules: {
-    "no-console": 0,
-    "no-shadow": 0,
-    "no-unused-vars": 0,
-    "no-return-await": "off",
-    "@typescript-eslint/return-await": "warn",
-    "comma-dangle": [0, "always-multiline"],
-    "padded-blocks": [
-      0,
-      { blocks: "always", classes: "always", switches: "always" },
-      { allowSingleLineBlocks: true },
-    ],
-    "max-len": [2, { code: 160, ignoreUrls: true }],
-    "prettier/prettier": [
-      "off",
-      {
-        endOfLine: "auto",
-        tabWidth: 2,
-        semi: false,
-        trailingComma: "es5",
-        singleQuote: true,
-        printWidth: 145,
-      },
-    ],
-    "import/order": [
-      "error",
+    // 允许使用 any 类型
+    '@typescript-eslint/no-explicit-any': 0,
+    // 允许导出匿名对象
+    'import/no-anonymous-default-export': 0,
+
+    // 分类型导包
+    'import/order': [
+      'error',
       {
         groups: [
-          "builtin",
-          "external",
-          ["internal", "parent", "sibling", "index"],
-          "unknown",
+          'builtin',
+          'external',
+          ['internal', 'parent', 'sibling', 'index'],
+          'unknown'
         ],
         pathGroups: [
           {
-            pattern: "@app/**",
-            group: "external",
-            position: "after",
-          },
+            pattern: '@app/**',
+            group: 'external',
+            position: 'after'
+          }
         ],
-        pathGroupsExcludedImportTypes: ["builtin"],
-        "newlines-between": "always",
+        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'always',
         alphabetize: {
-          order: "asc",
-          // acseInsensitive: true,
-        },
-      },
-    ],
+          order: 'asc'
+        }
+      }
+    ]
+  }
+}
 
-    // 允许 函数组件
-    "react/function-component-definition": [
-      2,
-      { namedComponents: ["function-declaration", "function-expression"] },
-    ],
-  },
-};
-
-module.exports = eslintrc;
+module.exports = eslintrc

@@ -1,14 +1,14 @@
-import Icon from "@ant-design/icons";
-import React from "react";
+import Icon from '@ant-design/icons'
+import React from 'react'
 
-import { IconSvgBaseProps } from ".";
+import { IconSvgBaseProps } from '.'
 
-import { ReactComponent as Android } from '@/assets/svgIcon/android.svg';
+import { ReactComponent as Android } from '@/assets/svgIcon/android.svg'
 
 const IconSvgAndroid = React.forwardRef<HTMLSpanElement, IconSvgBaseProps>(
   (props, ref) => <Icon {...props} ref={ref} component={Android} />
-);
+)
 
-IconSvgAndroid.displayName = 'IconSvgAndroid';
+IconSvgAndroid.displayName = 'IconSvgAndroid'
 
-export default IconSvgAndroid;
+export default IconSvgAndroid
