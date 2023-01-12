@@ -2,7 +2,7 @@ const path = require('path')
 
 const CracoLessPlugin = require('craco-less')
 
-const { lessLoaderOptions } = require('./bin/config/craco.less.config')
+const { lessLoaderOptions } = require('./scripts/config/craco.less.config')
 
 module.exports = {
   webpack: {

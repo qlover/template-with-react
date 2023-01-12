@@ -1,5 +1,4 @@
 {
-  // "extends": "./bin/config/tsconfig.base.json",
   // 防止被重写
   "compilerOptions": {
     "target": "es5",

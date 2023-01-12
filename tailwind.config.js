@@ -1,29 +1,28 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const plugin = require("tailwindcss/plugin");
+const plugin = require('tailwindcss/plugin')
 
-const { ovrriedWithRoot10PX } = require("./bin/config/tailwind");
+const { ovrriedWithRoot10PX } = require('./scripts/config/tailwind')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       ...ovrriedWithRoot10PX,
       screens: {
-        xs: "375px",
+        xs: '375px',
         // => @media (min-width: 375px) { ... }
-        sm: "640px",
+        sm: '640px',
         // => @media (min-width: 640px) { ... }
-        md: "768px",
+        md: '768px',
         // => @media (min-width: 768px) { ... }
-        lg: "1024px",
+        lg: '1024px',
         // => @media (min-width: 1024px) { ... }
-        xl: "1280px",
+        xl: '1280px',
         // => @media (min-width: 1280px) { ... }
-        "2xl": "1536px",
+        '2xl': '1536px',
         // => @media (min-width: 1640px) { ... }
-        "3xl": "1640px",
-        maxxl: "1920px",
+        '3xl': '1640px',
+        maxxl: '1920px'
       },
       // 两种字体 LexendDeca 和 Lexend
       fontFamily: {
@@ -31,16 +30,16 @@ module.exports = {
         // lexendDeca: ['Lexend Deca', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: "#1E1C2C",
-      },
-    },
+        primary: '#1E1C2C'
+      }
+    }
   },
 
   plugins: [
     plugin(({ addBase }) => {
       addBase({
-        html: { fontSize: "10px" },
-      });
-    }),
-  ],
-};
+        html: { fontSize: '10px' }
+      })
+    })
+  ]
+}

@@ -8,12 +8,10 @@
     "test": "craco test",
     "lint": "eslint --ext .js,.ts,.tsx ./src",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx ./src",
-    "prepare": "husky install",
     "eject": "react-scripts eject",
-    "git:commit:add": "git add . & cz",
-    "git:commit": "cz",
-    "init:cz": "npx commitizen init cz-conventional-changelog --save-dev --save-exact",
-    "init:release": "npm init release-it",
+    "init:work": "node ./scripts/bin/_work.js",
+    "commit": "node ./scripts/bin/commit.js",
+    "git:push": "git push",
     "release": "release-it"
   },
   "dependencies": {
