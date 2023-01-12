@@ -13,7 +13,7 @@ export type IconFontType =
  * @genScript
  */
 const Iconfont = createFromIconfontCN<IconFontType>({
-  scriptUrl: 'https://at.alicdn.com/t/c/font_2313575_jrmu3vunaj.css'
+  scriptUrl: 'https://at.alicdn.com/t/c/font_3814331_cjle1aleofc.js'
 })
 
 export default Iconfont

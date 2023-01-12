@@ -1,20 +1,20 @@
 const { svgAssetsSrcPath } = require('../config/path.config')
 
 function genSvgIconTpl(fileName, comName) {
-  return `import Icon from "@ant-design/icons";
-import React from "react";
+  return `import Icon from '@ant-design/icons'
+import React from 'react'
 
-import { IconSvgBaseProps } from ".";
+import { ReactComponent as ${comName} } from '@${svgAssetsSrcPath}/${fileName}.svg'
 
-import { ReactComponent as ${comName} } from '@${svgAssetsSrcPath}/${fileName}.svg';
+import { IconSvgBaseProps } from '.'
 
 const IconSvg${comName} = React.forwardRef<HTMLSpanElement, IconSvgBaseProps>(
   (props, ref) => <Icon {...props} ref={ref} component={${comName}} />
-);
+)
 
-IconSvg${comName}.displayName = 'IconSvg${comName}';
+IconSvg${comName}.displayName = 'IconSvg${comName}'
 
-export default IconSvg${comName};
+export default IconSvg${comName}
 `
 }
 

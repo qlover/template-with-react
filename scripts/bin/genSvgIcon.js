@@ -2,9 +2,9 @@ const fs = require('fs')
 const { join } = require('path')
 
 const { svgIconOutputPath, svgAssetsPath } = require('../config/path.config')
+const { genSvgIconTpl, genSvgIconIndexTpl } = require('../tpl')
 const { fillFileName, isDir, delDir, mkdirsSync } = require('../util/files')
-const { firstCaseUpper } = require('../util/firstCaseUpper')
-const { genSvgIconTpl, genSvgIconIndexTpl } = require('../util/tpl')
+const firstCaseUpper = require('../util/firstCaseUpper')
 
 const componentRoot = svgIconOutputPath
 
