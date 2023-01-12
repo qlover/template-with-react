@@ -80,7 +80,7 @@ function delDir(path) {
   let files = []
   if (existsSync(path)) {
     files = readdirSync(path)
-    files.forEach((file, index) => {
+    files.forEach((file) => {
       let curPath = join(path, file)
       if (statSync(curPath).isDirectory()) {
         delDir(curPath) //递归删除文件夹
